@@ -13,7 +13,7 @@ Este repositorio alberga un *contenedor Docker* para montar un Servidor Web usan
 
 Para usar la imagen desde el registry de docker hub
 
-    totobo ~ $ docker pull luipa/base-apache
+    totobo ~ $ docker pull luispa/base-apache
 
 
 ## Clonar el repositorio
