@@ -7,5 +7,5 @@
 #
 apache:
 
-  build: apache/
+  build: ./
   
