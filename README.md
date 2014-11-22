@@ -1,6 +1,6 @@
 # Introducción
 
-Este repositorio alberga un *contenedor Docker* para montar un Servidor Web usando "apache2" y "php5", está automatizado en el Registry Hub de Docker [luispa/base-apache](https://registry.hub.docker.com/u/luispa/base-apache/) conectado con el el proyecto en [GitHub base-apachehttps://github.com/LuisPalacios/base-apache)
+Este repositorio alberga un *contenedor Docker* para montar un Servidor Web usando "apache2" y "php5", está automatizado en el Registry Hub de Docker [luispa/base-apache](https://registry.hub.docker.com/u/luispa/base-apache/) conectado con el el proyecto en [GitHub base-apache](https://github.com/LuisPalacios/base-apache)
 
 
 ## Ficheros
