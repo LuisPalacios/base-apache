@@ -1,0 +1,11 @@
+#
+# Build & Run: $ fig build
+# Debug      : $ docker run -t -i --name webserver
+
+##  =========================
+#   Apache base image
+#
+apache:
+
+  build: apache/
+  
