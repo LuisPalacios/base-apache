@@ -22,8 +22,6 @@ Este es el comando a ejecutar para clonar el repositorio y poder trabajar con é
 
     totobo ~ $ clone https://github.com/LuisPalacios/docker-apache.git
 
-Luego puedes usar el programa [fig](http://www.fig.sh/index.html) para crear la imagen, etc.
+Luego puedes crear la imagen localmente con el siguiente comando
 
-En mi caso utilizo esta imagen como base para otras futuras, así que simplemente ejecuto
-
-    $ fig build
+    $ docker build -t luispa/base-apache ./
