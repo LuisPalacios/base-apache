@@ -89,12 +89,3 @@ ENV APACHE_DOCUMENTROOT /var/www
 
 # Fix issue with SSLMutex - https://github.com/yankcrime/dockerfiles/issues/3
 RUN mkdir /var/run/apache2
-
-# Ejecutable a lanzar cuando arranque el contenedor,
-#
-#ADD ./init.sh /init.sh
-#RUN chmod +x /init.sh
-
-# Comando a ejecutar
-#
-#CMD ["/init.sh", "/usr/sbin/apache2", "-D FOREGROUND"] 
