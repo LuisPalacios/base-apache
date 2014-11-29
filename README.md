@@ -6,7 +6,6 @@ Este repositorio alberga un *contenedor Docker* para montar un Servidor Web usan
 ## Ficheros
 
 * **Dockerfile**: Para crear un servidor "web" basado en debian
-* **fig.yml**: Para poder usar el comando [fig](http://www.fig.sh/index.html)
 * **sample**: Directorio con index.html y phpinfo.php para hacer pruebas
 
 ## Instalación de la imagen
