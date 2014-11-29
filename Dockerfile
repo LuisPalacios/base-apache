@@ -72,6 +72,9 @@ RUN sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Madrid/g' /etc/ph
 ADD ./001-docker.conf /etc/apache2/sites-available/
 RUN ln -s /etc/apache2/sites-available/001-docker.conf /etc/apache2/sites-enabled/
 
+ADD ./001-docker.conf /etc/apache2/sites-available/000-default.conf
+
+
 # Añado un pequeño phpinfo.php para poder comprobar que php funciona
 # ADD phpinfo.php /var/www/phpinfo.php
 
@@ -85,7 +88,7 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_SERVERADMIN admin@localhost
 ENV APACHE_SERVERNAME totobo
 ENV APACHE_SERVERALIAS totobo.luispa.com
-ENV APACHE_DOCUMENTROOT /var/www
+#ENV APACHE_DOCUMENTROOT /var/www
 
 # Fix issue with SSLMutex - https://github.com/yankcrime/dockerfiles/issues/3
 RUN mkdir /var/run/apache2
