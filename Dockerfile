@@ -69,9 +69,9 @@ RUN sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Madrid/g' /etc/ph
 RUN sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Madrid/g' /etc/php5/apache2/php.ini
 
 # Preparo el fichero de configuración del web server
-ADD ./001-docker.conf /etc/apache2/sites-available/
-RUN ln -s /etc/apache2/sites-available/001-docker.conf /etc/apache2/sites-enabled/
-
+#ADD ./001-docker.conf /etc/apache2/sites-available/
+#RUN ln -s /etc/apache2/sites-available/001-docker.conf /etc/apache2/sites-enabled/
+#
 ADD ./001-docker.conf /etc/apache2/sites-available/000-default.conf
 
 
