@@ -12,7 +12,12 @@ Este repositorio alberga un *contenedor Docker* para montar un Servidor Web usan
 
 Para usar la imagen desde el registry de docker hub
 
-    totobo ~ $ docker pull luispa/base-apache
+  totobo ~ $ docker pull luispa/base-apache
+
+
+## Error 404.php personalizado
+
+Cuando utilices este contenedor recuerda que deberías crear un fichero 404.php en la raiz de tu directorio persistente que será montado como ```/var/www```. En el directorio sample tienes un ejemplo
 
 
 ## Clonar el repositorio

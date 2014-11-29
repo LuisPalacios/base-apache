@@ -71,9 +71,7 @@ RUN sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Madrid/g' /etc/ph
 # Copio el fichero de configuración de Apache
 ADD ./default.conf /etc/apache2/sites-available/default
 
-
-# Añado un pequeño phpinfo.php para poder comprobar que php funciona
-# ADD phpinfo.php /var/www/phpinfo.php
+# Recuerda que deberias copiar un fichero 404.php en /var/www
 
 # Set Apache environment variables (can be changed on docker run with -e)
 ENV APACHE_RUN_USER www-data
