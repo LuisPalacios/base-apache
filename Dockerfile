@@ -6,7 +6,7 @@
 
 # Desde donde parto...
 #
-FROM debian:latest
+FROM debian:jessie
 
 #
 MAINTAINER Luis Palacios <luis@luispa.com>
@@ -31,12 +31,12 @@ RUN dpkg-reconfigure locales
 #
 RUN echo "Europe/Madrid" > /etc/timezone; dpkg-reconfigure -f noninteractive tzdata
 
-# Añado soporte de php55 dotdeb
-RUN echo "deb http://packages.dotdeb.org wheezy all" | tee /etc/apt/sources.list.d/dotdeb.list
-RUN echo "deb-src http://packages.dotdeb.org wheezy all" | tee -a /etc/apt/sources.list.d/dotdeb.list
-RUN echo "deb http://packages.dotdeb.org wheezy-php55 all" | tee -a /etc/apt/sources.list.d/dotdeb.list
-RUN echo "deb-src http://packages.dotdeb.org wheezy-php55 all" | tee -a /etc/apt/sources.list.d/dotdeb.list
-RUN curl -s http://www.dotdeb.org/dotdeb.gpg | apt-key add -
+## Añado soporte de php55 dotdeb
+#RUN echo "deb http://packages.dotdeb.org wheezy all" | tee /etc/apt/sources.list.d/dotdeb.list
+#RUN echo "deb-src http://packages.dotdeb.org wheezy all" | tee -a /etc/apt/sources.list.d/dotdeb.list
+#RUN echo "deb http://packages.dotdeb.org wheezy-php55 all" | tee -a /etc/apt/sources.list.d/dotdeb.list
+#RUN echo "deb-src http://packages.dotdeb.org wheezy-php55 all" | tee -a /etc/apt/sources.list.d/dotdeb.list
+#RUN curl -s http://www.dotdeb.org/dotdeb.gpg | apt-key add -
 
 # Instalo PHP
 RUN apt-get update && \
@@ -60,8 +60,8 @@ RUN apt-get clean & rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod rewrite ssl headers php5
 
-# Instalo Composer
-RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+## Instalo Composer
+#RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 # PHP 5 
 # Let's set the default timezone in both cli and apache configs
