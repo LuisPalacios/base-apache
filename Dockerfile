@@ -84,6 +84,3 @@ ENV APACHE_SERVERADMIN admin@localhost
 ENV APACHE_SERVERNAME totobo
 ENV APACHE_SERVERALIAS totobo.luispa.com
 #ENV APACHE_DOCUMENTROOT /var/www
-
-# Fix issue with SSLMutex - https://github.com/yankcrime/dockerfiles/issues/3
-RUN mkdir /var/run/apache2
