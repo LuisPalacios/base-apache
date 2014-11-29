@@ -69,7 +69,7 @@ RUN sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Madrid/g' /etc/ph
 RUN sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Madrid/g' /etc/php5/apache2/php.ini
 
 # Copio el fichero de configuración de Apache
-ADD ./default.conf /etc/apache2/sites-available/default
+ADD ./000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Recuerda que deberias copiar un fichero 404.php en /var/www
 
