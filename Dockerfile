@@ -31,6 +31,19 @@ RUN dpkg-reconfigure locales
 #
 RUN echo "Europe/Madrid" > /etc/timezone; dpkg-reconfigure -f noninteractive tzdata
 
+# Workaround para el Timezone, en vez de montar el fichero en modo read-only:
+# 1) En el DOCKERFILE
+RUN mkdir -p /config/tz && mv /etc/timezone /config/tz/ && ln -s /config/tz/timezone /etc/
+# 2) En el Script entrypoint:
+#     if [ -d '/config/tz' ]; then
+#         dpkg-reconfigure -f noninteractive tzdata
+#         echo "Hora actual: `date`"
+#     fi
+# 3) Al arrancar el contenedor, montar el volumen, a contiuación un ejemplo:
+#     /Apps/data/tz:/config/tz
+# 4) Localizar la configuración:
+#     echo "Europe/Madrid" > /Apps/data/tz/timezone
+ 
 ## Añado soporte de php55 dotdeb
 #RUN echo "deb http://packages.dotdeb.org wheezy all" | tee /etc/apt/sources.list.d/dotdeb.list
 #RUN echo "deb-src http://packages.dotdeb.org wheezy all" | tee -a /etc/apt/sources.list.d/dotdeb.list
@@ -84,3 +97,15 @@ ENV APACHE_SERVERADMIN admin@localhost
 ENV APACHE_SERVERNAME totobo
 ENV APACHE_SERVERALIAS totobo.luispa.com
 #ENV APACHE_DOCUMENTROOT /var/www
+
+## Script que uso a menudo durante las pruebas. Es como "cat" pero elimina líneas de comentarios
+RUN echo "grep -vh '^[[:space:]]*#' \"\$@\" | grep -v '^//' | grep -v '^;' | grep -v '^\$' | grep -v '^\!' | grep -v '^--'" > /usr/bin/confcat
+RUN chmod 755 /usr/bin/confcat
+
+#-----------------------------------------------------------------------------------
+
+# Ejecutar siempre al arrancar el contenedor este script
+#
+ADD do.sh /do.sh
+RUN chmod +x /do.sh
+ENTRYPOINT ["/do.sh"]

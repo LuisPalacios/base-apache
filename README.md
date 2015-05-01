@@ -8,6 +8,19 @@ Este repositorio alberga un *contenedor Docker* para montar un Servidor Web usan
 * **Dockerfile**: Para crear un servidor "web" basado en debian
 * **sample**: Directorio con index.html y phpinfo.php para hacer pruebas
 
+# Personalización
+
+### Volumen
+
+
+Directorio persistente para configurar el Timezone. Crear el directorio /Apps/data/tz y dentro de él crear el fichero timezone. Luego montarlo con -v o con fig.yml
+
+    Montar:
+       "/Apps/data/tz:/config/tz"  
+    Preparar: 
+       $ echo "Europe/Madrid" > /config/tz/timezone
+
+
 ## Instalación de la imagen
 
 Para usar la imagen desde el registry de docker hub
